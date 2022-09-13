@@ -4,6 +4,8 @@
 
 This repository contains [Python stub files](https://peps.python.org/pep-0484/#stub-files) for the [CARLA Python API](https://carla.readthedocs.io/en/latest/python_api/). Installing these along the CARLA Python API will allow you to use type hints and auto-completion in your code.
 
+![type-hints](https://user-images.githubusercontent.com/45951843/189996748-ef9e27f7-c3df-4249-bb22-659edffd54ea.png)
+
 ## Installation
 Download the stub files (ending with `.pyi`) for your version of CARLA from [the releases page](https://github.com/mathiaswold/carla-python-stubs/releases). Then follow the installation instructions for your editor below.
 
