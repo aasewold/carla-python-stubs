@@ -29,7 +29,7 @@ class Actor:
 
 	def add_angular_impulse(self, angular_impulse: Vector3D):
 		"""
-		Applies an angular impulse at the center of mass of the actor. This method should be used for instantaneous torques, usually applied once. Use __<font color="#7fb800">add_torque()</font>__ to apply rotation forces over a period of time.
+		Applies an angular impulse at the center of mass of the actor. This method should be used for instantaneous torques, usually applied once. Use add_torque() to apply rotation forces over a period of time.
 
 		:param angular_impulse: (Vector3D) Angular impulse vector in global coordinates.
 		"""
@@ -37,7 +37,7 @@ class Actor:
 
 	def add_force(self, force: Vector3D):
 		"""
-		Applies a force at the center of mass of the actor. This method should be used for forces that are applied over a certain period of time. Use __<font color="#7fb800">add_impulse()</font>__ to apply an impulse that only lasts an instant.
+		Applies a force at the center of mass of the actor. This method should be used for forces that are applied over a certain period of time. Use add_impulse() to apply an impulse that only lasts an instant.
 
 		:param force: (Vector3D) Force vector in global coordinates.
 		"""
@@ -45,7 +45,7 @@ class Actor:
 
 	def add_impulse(self, impulse: Vector3D):
 		"""
-		Applies an impulse at the center of mass of the actor. This method should be used for instantaneous forces, usually applied once. Use __<font color="#7fb800">add_force()</font>__ to apply forces over a period of time.
+		Applies an impulse at the center of mass of the actor. This method should be used for instantaneous forces, usually applied once. Use add_force() to apply forces over a period of time.
 
 		:param impulse: (Vector3D) Impulse vector in global coordinates.
 		"""
@@ -53,7 +53,7 @@ class Actor:
 
 	def add_torque(self, torque: Vector3D):
 		"""
-		Applies a torque at the center of mass of the actor. This method should be used for torques that are applied over a certain period of time. Use __<font color="#7fb800">add_angular_impulse()</font>__ to apply a torque that only lasts an instant.
+		Applies a torque at the center of mass of the actor. This method should be used for torques that are applied over a certain period of time. Use add_angular_impulse() to apply a torque that only lasts an instant.
 
 		:param torque: (Vector3D) Torque vector in global coordinates.
 		"""
@@ -61,7 +61,7 @@ class Actor:
 
 	def destroy(self) -> bool:
 		"""
-		Tells the simulator to destroy this actor and returns <b>True</b> if it was successful. It has no effect if it was already destroyed.
+		Tells the simulator to destroy this actor and returns True if it was successful. It has no effect if it was already destroyed.
 
 		**warning**: This method blocks the script until the destruction is completed by the simulator.
 
@@ -99,7 +99,7 @@ class Actor:
 
 	def enable_constant_velocity(self, velocity: Vector3D):
 		"""
-		Sets a vehicle's velocity vector to a constant value over time. The resulting velocity will be approximately the `velocity` being set, as with __<font color="#7fb800">set_target_velocity()</font>__.
+		Sets a vehicle's velocity vector to a constant value over time. The resulting velocity will be approximately the `velocity` being set, as with set_target_velocity().
 
 		*note*: Only carla.Vehicle actors can use this method.
 
@@ -289,7 +289,7 @@ class VehicleLightState:
 
 class Vehicle(Actor):
 	"""
-	One of the most important group of actors in CARLA. These include any type of vehicle from cars to trucks, motorbikes, vans, bycicles and also official vehicles such as police cars. A wide set of these actors is provided in carla.BlueprintLibrary to facilitate differente requirements. Vehicles can be either manually controlled or set to an autopilot mode that will be conducted client-side by the <b>traffic manager</b>.
+	One of the most important group of actors in CARLA. These include any type of vehicle from cars to trucks, motorbikes, vans, bycicles and also official vehicles such as police cars. A wide set of these actors is provided in carla.BlueprintLibrary to facilitate differente requirements. Vehicles can be either manually controlled or set to an autopilot mode that will be conducted client-side by the traffic manager.
 	"""
 
 	bounding_box: BoundingBox
@@ -363,7 +363,7 @@ class Vehicle(Actor):
 
 	def get_traffic_light_state(self) -> TrafficLightState:
 		"""
-		The client returns the state of the traffic light affecting this vehicle according to last tick. The method does not call the simulator. If no traffic light is currently affecting the vehicle, returns <b>green</b>.
+		The client returns the state of the traffic light affecting this vehicle according to last tick. The method does not call the simulator. If no traffic light is currently affecting the vehicle, returns green.
 
 		:return: carla.TrafficLightState
 		"""
@@ -611,7 +611,7 @@ class TrafficLight(TrafficSign):
 
 	def is_frozen(self) -> bool:
 		"""
-		The client returns <b>True</b> if a traffic light is frozen according to last tick. The method does not call the simulator.
+		The client returns True if a traffic light is frozen according to last tick. The method does not call the simulator.
 
 		:return: bool
 		"""
@@ -988,7 +988,7 @@ class ActorAttribute:
 	"""The attribute's name and identifier in the library."""
 
 	is_modifiable: bool
-	"""It is <b>True</b> if the attribute's value can be modified."""
+	"""It is True if the attribute's value can be modified."""
 
 	recommended_values: list[str]
 	"""A list of values suggested by those who designed the blueprint."""
@@ -1093,7 +1093,7 @@ class ActorBlueprint:
 
 	def has_attribute(self, id: str) -> bool:
 		"""
-		Returns <b>True</b> if the blueprint contains the attribute `id`.
+		Returns True if the blueprint contains the attribute `id`.
 
 		:param id: (str) e.g. `gender` would return **True** for pedestrians' blueprints.
 
@@ -1103,7 +1103,7 @@ class ActorBlueprint:
 
 	def has_tag(self, tag: str) -> bool:
 		"""
-		Returns <b>True</b> if the blueprint has the specified `tag` listed.
+		Returns True if the blueprint has the specified `tag` listed.
 
 		:param tag: (str) e.g. 'walker'
 
@@ -1113,7 +1113,7 @@ class ActorBlueprint:
 
 	def match_tags(self, wildcard_pattern: str) -> bool:
 		"""
-		Returns <b>True</b> if any of the tags listed for this blueprint matches `wildcard_pattern`. Matching follows [fnmatch](https://docs.python.org/2/library/fnmatch.html) standard.
+		Returns True if any of the tags listed for this blueprint matches `wildcard_pattern`. Matching follows [fnmatch](https://docs.python.org/2/library/fnmatch.html) standard.
 
 		:param wildcard_pattern: (str) 
 
@@ -1249,7 +1249,7 @@ class Client:
 
 	def apply_batch(self, commands: list):
 		"""
-		Executes a list of commands on a single simulation step and retrieves no information. If you need information about the response of each command, use the __<font color="#7fb800">apply_batch_sync()</font>__ method. [Here](https://github.com/carla-simulator/carla/blob/master/PythonAPI/examples/generate_traffic.py) is an example on how to delete the actors that appear in carla.ActorList all at once.
+		Executes a list of commands on a single simulation step and retrieves no information. If you need information about the response of each command, use the apply_batch_sync() method. [Here](https://github.com/carla-simulator/carla/blob/master/PythonAPI/examples/generate_traffic.py) is an example on how to delete the actors that appear in carla.ActorList all at once.
 
 		:param commands: (list) A list of commands to execute in batch. Each command is different and has its own parameters. They appear listed at the bottom of this page.
 		"""
@@ -1257,9 +1257,9 @@ class Client:
 
 	def apply_batch_sync(self, commands: list, due_tick_cue: bool = False) -> list[command.Response]:
 		"""
-		Executes a list of commands on a single simulation step, blocks until the commands are linked, and returns a list of <b>command.Response</b> that can be used to determine whether a single command succeeded or not. [Here](https://github.com/carla-simulator/carla/blob/master/PythonAPI/examples/generate_traffic.py) is an example of it being used to spawn actors.
+		Executes a list of commands on a single simulation step, blocks until the commands are linked, and returns a list of command.Response that can be used to determine whether a single command succeeded or not. [Here](https://github.com/carla-simulator/carla/blob/master/PythonAPI/examples/generate_traffic.py) is an example of it being used to spawn actors.
 
-		:param commands: (list) A list of commands to execute in batch. The commands available are listed right above, in the method **<font color="#7fb800">apply_batch()</font>**.
+		:param commands: (list) A list of commands to execute in batch. The commands available are listed right above, in the method **apply_batch()**.
 
 		:param due_tick_cue: (bool) A boolean parameter to specify whether or not to perform a carla.World.tick after applying the batch in _synchronous mode_. It is __False__ by default.
 
@@ -1670,7 +1670,7 @@ Default is __False__. The traffic manager will not change the vehicle light stat
 		"""
 		Sets the Traffic Manager to [synchronous mode](adv_traffic_manager.md#synchronous-mode). In a [multiclient situation](adv_traffic_manager.md#multiclient), only the TM-Server can tick. Similarly, in a [multiTM situation](adv_traffic_manager.md#multitm), only one TM-Server must tick. Use this method in the client that does the world tick, and right after setting the world to synchronous mode, to set which TM will be the master while in sync.
 
-		**warning**: If the server is set to synchronous mode, the TM <b>must</b> be set to synchronous mode too in the same client that does the tick.
+		**warning**: If the server is set to synchronous mode, the TM must be set to synchronous mode too in the same client that does the tick.
 
 		:param mode_switch: (bool) If __True__, the TM synchronous mode is enabled.
 		"""
@@ -1747,13 +1747,13 @@ class VehicleControl:
 	"""A scalar value to control the vehicle brake [0.0, 1.0]. Default is 0.0."""
 
 	hand_brake: bool
-	"""Determines whether hand brake will be used. Default is <b>False</b>."""
+	"""Determines whether hand brake will be used. Default is False."""
 
 	reverse: bool
-	"""Determines whether the vehicle will move backwards. Default is <b>False</b>."""
+	"""Determines whether the vehicle will move backwards. Default is False."""
 
 	manual_gear_shift: bool
-	"""Determines whether the vehicle will be controlled by changing gears manually. Default is <b>False</b>."""
+	"""Determines whether the vehicle will be controlled by changing gears manually. Default is False."""
 
 	gear: int
 	"""States which gear is the vehicle running on."""
@@ -1816,7 +1816,7 @@ class WalkerControl:
 	"""A scalar value to control the walker's speed."""
 
 	jump: bool
-	"""If <b>True</b>, the walker will perform a jump."""
+	"""If True, the walker will perform a jump."""
 
 	def __init__(self, direction: Vector3D = [1.0, 0.0, 0.0], speed: float = 0.0, jump: bool = False):
 		"""
@@ -1832,7 +1832,7 @@ class WalkerControl:
 
 	def __eq__(self, other: WalkerControl):
 		"""
-		Compares every variable with `other` and returns <b>True</b> if these are all the same.
+		Compares every variable with `other` and returns True if these are all the same.
 
 		:param other: (WalkerControl) 
 		"""
@@ -1840,7 +1840,7 @@ class WalkerControl:
 
 	def __ne__(self, other: WalkerControl):
 		"""
-		Compares every variable with `other` and returns <b>True</b> if any of these differ.
+		Compares every variable with `other` and returns True if any of these differ.
 
 		:param other: (WalkerControl) 
 		"""
@@ -1974,7 +1974,7 @@ class VehiclePhysicsControl:
 	"""Damping ratio when the throttle is zero with clutch disengaged."""
 
 	use_gear_autobox: bool
-	"""If <b>True</b>, the vehicle will have an automatic transmission."""
+	"""If True, the vehicle will have an automatic transmission."""
 
 	gear_switch_time: float
 	"""Switching time between gears."""
@@ -2528,8 +2528,8 @@ class Location(Vector3D):
 
 class Rotation:
 	"""
-	Class that represents a 3D rotation and therefore, an orientation in space. CARLA uses the Unreal Engine coordinates system. This is a Z-up left-handed system.  <br>
-<br>The constructor method follows a specific order of declaration: `(pitch, yaw, roll)`, which corresponds to `(Y-rotation,Z-rotation,X-rotation)`.  <br> <br>![UE4_Rotation](https://d26ilriwvtzlb.cloudfront.net/8/83/BRMC_9.jpg) *Unreal Engine's coordinates system*
+	Class that represents a 3D rotation and therefore, an orientation in space. CARLA uses the Unreal Engine coordinates system. This is a Z-up left-handed system.  
+The constructor method follows a specific order of declaration: `(pitch, yaw, roll)`, which corresponds to `(Y-rotation,Z-rotation,X-rotation)`.   ![UE4_Rotation](https://d26ilriwvtzlb.cloudfront.net/8/83/BRMC_9.jpg) *Unreal Engine's coordinates system*
 	"""
 
 	pitch: float
@@ -2545,7 +2545,7 @@ class Rotation:
 		"""
 
 
-		**warning**: The declaration order is different in CARLA <code>(pitch,yaw,roll)</code>, and in the Unreal Engine Editor <code>(roll,pitch,yaw)</code>. When working in a build from source, don't mix up the axes' rotations.
+		**warning**: The declaration order is different in CARLA (pitch,yaw,roll), and in the Unreal Engine Editor (roll,pitch,yaw). When working in a build from source, don't mix up the axes' rotations.
 
 		:param pitch: (float) Y-axis rotation angle.
 
@@ -2793,7 +2793,7 @@ class BoundingBox:
 
 class GeoLocation:
 	"""
-	Class that contains geographical coordinates simulated data. The carla.Map can convert simulation locations by using the <b><georeference></b> tag in the OpenDRIVE file.
+	Class that contains geographical coordinates simulated data. The carla.Map can convert simulation locations by using the <georeference> tag in the OpenDRIVE file.
 	"""
 
 	latitude: float
@@ -3300,7 +3300,7 @@ class LaneMarkingColor:
 
 class LaneMarkingType:
 	"""
-	Class that defines the lane marking types accepted by OpenDRIVE 1.4. The snipet in carla.Map.get_waypoint shows how a waypoint can be used to retrieve the information about adjacent lane markings.   <br><br> __Note on double types:__ Lane markings are defined under the OpenDRIVE standard that determines whereas a line will be considered "BrokenSolid" or "SolidBroken". For each road there is a center lane marking, defined from left to right regarding the lane's directions. The rest of the lane markings are defined in order from the center lane to the closest outside of the road.
+	Class that defines the lane marking types accepted by OpenDRIVE 1.4. The snipet in carla.Map.get_waypoint shows how a waypoint can be used to retrieve the information about adjacent lane markings.    __Note on double types:__ Lane markings are defined under the OpenDRIVE standard that determines whereas a line will be considered "BrokenSolid" or "SolidBroken". For each road there is a center lane marking, defined from left to right regarding the lane's directions. The rest of the lane markings are defined in order from the center lane to the closest outside of the road.
 	"""
 
 	NONE: Any
@@ -3386,7 +3386,7 @@ class Map:
 
 	def transform_to_geolocation(self, location: Location) -> GeoLocation:
 		"""
-		Converts a given `location`, a point in the simulation, to a carla.GeoLocation, which represents world coordinates. The geographical location of the map is defined inside OpenDRIVE within the tag <b><georeference></b>.
+		Converts a given `location`, a point in the simulation, to a carla.GeoLocation, which represents world coordinates. The geographical location of the map is defined inside OpenDRIVE within the tag <georeference>.
 
 		:param location: (Location) 
 
@@ -3442,7 +3442,7 @@ class Map:
 
 	def get_topology(self) -> str:
 		"""
-		Returns a list of tuples describing a minimal graph of the topology of the OpenDRIVE file. The tuples contain pairs of waypoints located either at the point a road begins or ends. The first one is the origin and the second one represents another road end that can be reached. This graph can be loaded into [NetworkX](https://networkx.github.io/) to work with. Output could look like this: <b>[(w0, w1), (w0, w2), (w1, w3), (w2, w3), (w0, w4)]</b>.
+		Returns a list of tuples describing a minimal graph of the topology of the OpenDRIVE file. The tuples contain pairs of waypoints located either at the point a road begins or ends. The first one is the origin and the second one represents another road end that can be reached. This graph can be loaded into [NetworkX](https://networkx.github.io/) to work with. Output could look like this: [(w0, w1), (w0, w2), (w1, w3), (w2, w3), (w0, w4)].
 
 		:return: list(tuple(carla.Waypoint, carla.Waypoint))
 		"""
@@ -3451,11 +3451,11 @@ class Map:
 	def get_waypoint(self, location: Location, project_to_road: bool = True, lane_type: LaneType = LaneType) -> Waypoint:
 		"""
 		Returns a waypoint that can be located in an exact location or translated to the center of the nearest lane. Said lane type can be defined using flags such as `LaneType.Driving & LaneType.Shoulder`.
- The method will return <b>None</b> if the waypoint is not found, which may happen only when trying to retrieve a waypoint for an exact location. That eases checking if a point is inside a certain road, as otherwise, it will return the corresponding waypoint.
+ The method will return None if the waypoint is not found, which may happen only when trying to retrieve a waypoint for an exact location. That eases checking if a point is inside a certain road, as otherwise, it will return the corresponding waypoint.
 
 		:param location: (Location) Location used as reference for the carla.Waypoint.
 
-		:param project_to_road: (bool) If **True**, the waypoint will be at the center of the closest lane. This is the default setting. If **False**, the waypoint will be exactly in `location`. <b>None</b> means said location does not belong to a road.
+		:param project_to_road: (bool) If **True**, the waypoint will be at the center of the closest lane. This is the default setting. If **False**, the waypoint will be exactly in `location`. None means said location does not belong to a road.
 
 		:param lane_type: (LaneType) Limits the search for nearest lane to one or various lane types that can be flagged.
 
@@ -3514,11 +3514,11 @@ class LaneMarking:
 
 class Waypoint:
 	"""
-	Waypoints in CARLA are described as 3D directed points. They have a carla.Transform which locates the waypoint in a road and orientates it according to the lane. They also store the road information belonging to said point regarding its lane and lane markings.   <br><br> All the information regarding waypoints and the [waypoint API](../../core_map/#navigation-in-carla) is retrieved as provided by the OpenDRIVE file. Once the client asks for the map object to the server, no longer communication will be needed.
+	Waypoints in CARLA are described as 3D directed points. They have a carla.Transform which locates the waypoint in a road and orientates it according to the lane. They also store the road information belonging to said point regarding its lane and lane markings.    All the information regarding waypoints and the [waypoint API](../../core_map/#navigation-in-carla) is retrieved as provided by the OpenDRIVE file. Once the client asks for the map object to the server, no longer communication will be needed.
 	"""
 
 	id: int
-	"""The identificator is generated using a hash combination of the <b>road</b>, <b>section</b>, <b>lane</b> and <b>s</b> values that correspond to said point in the OpenDRIVE geometry. The <b>s</b> precision is set to 2 centimeters, so 2 waypoints closer than 2 centimeters in the same road, section and lane, will have the same identificator."""
+	"""The identificator is generated using a hash combination of the road, section, lane and s values that correspond to said point in the OpenDRIVE geometry. The s precision is set to 2 centimeters, so 2 waypoints closer than 2 centimeters in the same road, section and lane, will have the same identificator."""
 
 	transform: Transform
 	"""Position and orientation of the waypoint according to the current lane information. This data is computed the first time it is accessed. It is not created right away in order to ease computing costs when lots of waypoints are created but their specific transform is not needed."""
@@ -3533,13 +3533,13 @@ class Waypoint:
 	"""OpenDRIVE lane's id, this value can be positive or negative which represents the direction of the current lane with respect to the road. For more information refer to OpenDRIVE [documentation](http://www.opendrive.org/docs/OpenDRIVEFormatSpecRev1.4H.pdf#page=20)"""
 
 	s: float
-	"""OpenDRIVE <b>s</b> value of the current position."""
+	"""OpenDRIVE s value of the current position."""
 
 	is_junction: bool
-	"""<b>True</b> if the current Waypoint is on a junction as defined by OpenDRIVE."""
+	"""True if the current Waypoint is on a junction as defined by OpenDRIVE."""
 
 	lane_width: float
-	"""Horizontal size of the road at current <b>s</b>."""
+	"""Horizontal size of the road at current s."""
 
 	lane_change: LaneChange
 	"""Lane change definition of the current Waypoint's location, based on the traffic rules defined in the OpenDRIVE file. It states if a lane change can be done and in which direction."""
@@ -3576,7 +3576,7 @@ The list may be empty if the lane is not connected to any other at the specified
 
 	def previous(self, distance: float) -> list[Waypoint]:
 		"""
-		This method does not return the waypoint previously visited by an actor, but a list of waypoints at an approximate `distance` but in the opposite direction of the lane. Similarly to **<font color="#7fb800">next()</font>**, it takes into account the road and its possible deviations without performing any lane change and returns one waypoint per option.
+		This method does not return the waypoint previously visited by an actor, but a list of waypoints at an approximate `distance` but in the opposite direction of the lane. Similarly to **next()**, it takes into account the road and its possible deviations without performing any lane change and returns one waypoint per option.
 The list may be empty if the lane is not connected to any other at the specified distance.
 
 		:param distance: (float) The approximate distance where to get the previous waypoints.
@@ -3632,7 +3632,7 @@ The list may be empty if the lane is not connected to any other at the specified
 	def get_left_lane(self) -> Waypoint:
 		"""
 		Generates a Waypoint at the center of the left lane based on the direction of the current Waypoint, taking into account if the lane change is allowed in this location.
-Will return <b>None</b> if the lane does not exist
+Will return None if the lane does not exist
 
 		:return: carla.Waypoint
 		"""
@@ -3641,7 +3641,7 @@ Will return <b>None</b> if the lane does not exist
 	def get_right_lane(self) -> Waypoint:
 		"""
 		Generates a waypoint at the center of the right lane based on the direction of the current waypoint, taking into account if the lane change is allowed in this location.
-Will return <b>None</b> if the lane does not exist.
+Will return None if the lane does not exist.
 
 		:return: carla.Waypoint
 		"""
@@ -3815,7 +3815,7 @@ Landmarks will be accessed by carla.Waypoint objects trying to retrieve the regu
 
 	road_id: int
 	"""The OpenDRIVE ID of the road where this landmark is defined. Due to OpenDRIVE road definitions, this road may be different from the road the landmark is currently affecting. It is mostly the case in junctions where the road diverges in different routes.
-<small>Example: a traffic light is defined in one of the divergent roads in a junction, but it affects all the possible routes</small>"""
+Example: a traffic light is defined in one of the divergent roads in a junction, but it affects all the possible routes"""
 
 	distance: float
 	"""Distance between the landmark and the waypoint creating the object (querying `get_landmarks` or `get_landmarks_of_type`)."""
@@ -3883,7 +3883,7 @@ Landmarks will be accessed by carla.Waypoint objects trying to retrieve the regu
 	def get_lane_validities(self) -> list[tuple[int]]:
 		"""
 		Returns which lanes the landmark is affecting to. As there may be specific lanes where the landmark is not effective, the return is a list of pairs containing ranges of the __lane_id__ affected:
-<small>Example: In a road with 5 lanes, being 3 not affected: [(from_lane1,to_lane2),(from_lane4,to_lane5)]</small>
+Example: In a road with 5 lanes, being 3 not affected: [(from_lane1,to_lane2),(from_lane4,to_lane5)]
 
 		:return: list(tuple(int))
 		"""
@@ -3904,7 +3904,7 @@ class Osm2Odr:
 
 	def convert(self, osm_file: str, settings: OSM2ODRSettings) -> str:
 		"""
-		Takes the content of an <code>.osm</code> file (OpenStreetMap format) and returns the content of the <code>.xodr</code> (OpenDRIVE format) describing said map. Some parameterization is passed to do the conversion.
+		Takes the content of an .osm file (OpenStreetMap format) and returns the content of the .xodr (OpenDRIVE format) describing said map. Some parameterization is passed to do the conversion.
 
 		:param osm_file: (str) The content of the input OpenStreetMap file parsed as string.
 
@@ -3977,7 +3977,7 @@ class Sensor(Actor):
 	Sensors compound a specific family of actors quite diverse and unique. They are normally spawned as attachment/sons of a vehicle (take a look at carla.World to learn about actor spawning). Sensors are thoroughly designed to retrieve different types of data that they are listening to. The data they receive is shaped as different subclasses inherited from carla.SensorData (depending on the sensor).
 
   Most sensors can be divided in two groups: those receiving data on every tick (cameras, point clouds and some specific sensors) and those who only receive under certain circumstances (trigger detectors). CARLA provides a specific set of sensors and their blueprint can be found in carla.BlueprintLibrary. All the information on their preferences and settlement can be found [here](ref_sensors.md), but the list of those available in CARLA so far goes as follow.
-  <br><b>Receive data on every tick.</b>
+  Receive data on every tick.
   - [Depth camera](ref_sensors.md#depth-camera).
   - [Gnss sensor](ref_sensors.md#gnss-sensor).
   - [IMU sensor](ref_sensors.md#imu-sensor).
@@ -3987,14 +3987,14 @@ class Sensor(Actor):
   - [RGB camera](ref_sensors.md#rgb-camera).
   - [RSS sensor](ref_sensors.md#rss-sensor).
   - [Semantic Segmentation camera](ref_sensors.md#semantic-segmentation-camera).
-  <br><b>Only receive data when triggered.</b>
+  Only receive data when triggered.
   - [Collision detector](ref_sensors.md#collision-detector).
   - [Lane invasion detector](ref_sensors.md#lane-invasion-detector).
   - [Obstacle detector](ref_sensors.md#obstacle-detector).
 	"""
 
 	is_listening: bool
-	"""When <b>True</b> the sensor will be waiting for data."""
+	"""When True the sensor will be waiting for data."""
 
 	def listen(self, callback: function):
 		"""
@@ -4056,7 +4056,7 @@ The RSS sensor uses world information, and a [RSS library](https://github.com/in
 
 	def drop_route(self):
 		"""
-		Discards the current route. If there are targets remaining in **<font color="#f8805a">routing_targets</font>**, creates a new route using those. Otherwise, a new route is created at random.
+		Discards the current route. If there are targets remaining in **routing_targets**, creates a new route using those. Otherwise, a new route is created at random.
 		"""
 		...
 
@@ -4172,16 +4172,16 @@ import numpy as np
 
 class SensorData:
 	"""
-	Base class for all the objects containing data generated by a carla.Sensor. This objects should be the argument of the function said sensor is listening to, in order to work with them. Each of these sensors needs for a specific type of sensor data. Hereunder is a list of the sensors and their corresponding data.<br>
-  - Cameras (RGB, depth and semantic segmentation): carla.Image.<br>
-  - Collision detector: carla.CollisionEvent.<br>
-  - GNSS sensor: carla.GnssMeasurement.<br>
-  - IMU sensor: carla.IMUMeasurement.<br>
-  - Lane invasion detector: carla.LaneInvasionEvent.<br>
-  - LIDAR sensor: carla.LidarMeasurement.<br>
-  - Obstacle detector: carla.ObstacleDetectionEvent.<br>
-  - Radar sensor: carla.RadarMeasurement.<br>
-  - RSS sensor: carla.RssResponse.<br>
+	Base class for all the objects containing data generated by a carla.Sensor. This objects should be the argument of the function said sensor is listening to, in order to work with them. Each of these sensors needs for a specific type of sensor data. Hereunder is a list of the sensors and their corresponding data.
+  - Cameras (RGB, depth and semantic segmentation): carla.Image.
+  - Collision detector: carla.CollisionEvent.
+  - GNSS sensor: carla.GnssMeasurement.
+  - IMU sensor: carla.IMUMeasurement.
+  - Lane invasion detector: carla.LaneInvasionEvent.
+  - LIDAR sensor: carla.LidarMeasurement.
+  - Obstacle detector: carla.ObstacleDetectionEvent.
+  - Radar sensor: carla.RadarMeasurement.
+  - RSS sensor: carla.RssResponse.
   - Semantic LIDAR sensor: carla.SemanticLidarMeasurement.
 	"""
 
@@ -4198,7 +4198,7 @@ class SensorData:
 
 class ColorConverter:
 	"""
-	Class that defines conversion patterns that can be applied to a carla.Image in order to show information provided by carla.Sensor. Depth conversions cause a loss of accuracy, as sensors detect depth as <b>float</b> that is then converted to a grayscale value between 0 and 255. Take a look at the snipet in carla.Sensor.listen to see an example of how to create and save image data for <b>sensor.camera.semantic_segmentation</b>.
+	Class that defines conversion patterns that can be applied to a carla.Image in order to show information provided by carla.Sensor. Depth conversions cause a loss of accuracy, as sensors detect depth as float that is then converted to a grayscale value between 0 and 255. Take a look at the snipet in carla.Sensor.listen to see an example of how to create and save image data for sensor.camera.semantic_segmentation.
 	"""
 
 	CityScapesPalette: Any
@@ -4321,11 +4321,11 @@ class Image(SensorData):
 
 	def save_to_disk(self, path: str, color_converter: ColorConverter = Raw):
 		"""
-		Saves the image to disk using a converter pattern stated as `color_converter`. The default conversion pattern is <b>Raw</b> that will make no changes to the image.
+		Saves the image to disk using a converter pattern stated as `color_converter`. The default conversion pattern is Raw that will make no changes to the image.
 
 		:param path: (str) Path that will contain the image.
 
-		:param color_converter: (ColorConverter) Default <b>Raw</b> will make no changes.
+		:param color_converter: (ColorConverter) Default Raw will make no changes.
 		"""
 		...
 
@@ -4432,7 +4432,7 @@ class OpticalFlowImage(SensorData):
 
 class LidarMeasurement(SensorData):
 	"""
-	Class that defines the LIDAR data retrieved by a <b>sensor.lidar.ray_cast</b>. This essentially simulates a rotating LIDAR using ray-casting. Learn more about this [here](ref_sensors.md#lidar-raycast-sensor).
+	Class that defines the LIDAR data retrieved by a sensor.lidar.ray_cast. This essentially simulates a rotating LIDAR using ray-casting. Learn more about this [here](ref_sensors.md#lidar-raycast-sensor).
 	"""
 
 	channels: int
@@ -4446,7 +4446,7 @@ class LidarMeasurement(SensorData):
 
 	def save_to_disk(self, path: str):
 		"""
-		Saves the point cloud to disk as a <b>.ply</b> file describing data from 3D scanners. The files generated are ready to be used within [MeshLab](http://www.meshlab.net/), an open source system for processing said files. Just take into account that axis may differ from Unreal Engine and so, need to be reallocated.
+		Saves the point cloud to disk as a .ply file describing data from 3D scanners. The files generated are ready to be used within [MeshLab](http://www.meshlab.net/), an open source system for processing said files. Just take into account that axis may differ from Unreal Engine and so, need to be reallocated.
 
 		:param path: (str) 
 		"""
@@ -4519,7 +4519,7 @@ class LidarDetection:
 
 class SemanticLidarMeasurement(SensorData):
 	"""
-	Class that defines the semantic LIDAR data retrieved by a <b>sensor.lidar.ray_cast_semantic</b>. This essentially simulates a rotating LIDAR using ray-casting. Learn more about this [here](ref_sensors.md#semanticlidar-raycast-sensor).
+	Class that defines the semantic LIDAR data retrieved by a sensor.lidar.ray_cast_semantic. This essentially simulates a rotating LIDAR using ray-casting. Learn more about this [here](ref_sensors.md#semanticlidar-raycast-sensor).
 	"""
 
 	channels: int
@@ -4533,7 +4533,7 @@ class SemanticLidarMeasurement(SensorData):
 
 	def save_to_disk(self, path: str):
 		"""
-		Saves the point cloud to disk as a <b>.ply</b> file describing data from 3D scanners. The files generated are ready to be used within [MeshLab](http://www.meshlab.net/), an open-source system for processing said files. Just take into account that axis may differ from Unreal Engine and so, need to be reallocated.
+		Saves the point cloud to disk as a .ply file describing data from 3D scanners. The files generated are ready to be used within [MeshLab](http://www.meshlab.net/), an open-source system for processing said files. Just take into account that axis may differ from Unreal Engine and so, need to be reallocated.
 
 		:param path: (str) 
 		"""
@@ -4612,7 +4612,7 @@ class SemanticLidarDetection:
 
 class CollisionEvent(SensorData):
 	"""
-	Class that defines a collision data for <b>sensor.other.collision</b>. The sensor creates one of this for every collision detected which may be many for one simulation step. Learn more about this [here](ref_sensors.md#collision-detector).
+	Class that defines a collision data for sensor.other.collision. The sensor creates one of this for every collision detected which may be many for one simulation step. Learn more about this [here](ref_sensors.md#collision-detector).
 	"""
 
 	actor: Actor
@@ -4628,7 +4628,7 @@ class CollisionEvent(SensorData):
 
 class ObstacleDetectionEvent(SensorData):
 	"""
-	Class that defines the obstacle data for <b>sensor.other.obstacle</b>. Learn more about this [here](ref_sensors.md#obstacle-detector).
+	Class that defines the obstacle data for sensor.other.obstacle. Learn more about this [here](ref_sensors.md#obstacle-detector).
 	"""
 
 	actor: Actor
@@ -4650,7 +4650,7 @@ class ObstacleDetectionEvent(SensorData):
 
 class LaneInvasionEvent(SensorData):
 	"""
-	Class that defines lanes invasion for <b>sensor.other.lane_invasion</b>. It works only client-side and is dependant on OpenDRIVE to provide reliable information. The sensor creates one of this every time there is a lane invasion, which may be more than once per simulation step. Learn more about this [here](ref_sensors.md#lane-invasion-detector).
+	Class that defines lanes invasion for sensor.other.lane_invasion. It works only client-side and is dependant on OpenDRIVE to provide reliable information. The sensor creates one of this every time there is a lane invasion, which may be more than once per simulation step. Learn more about this [here](ref_sensors.md#lane-invasion-detector).
 	"""
 
 	actor: Actor
@@ -4669,7 +4669,7 @@ class LaneInvasionEvent(SensorData):
 
 class GnssMeasurement(SensorData):
 	"""
-	Class that defines the Gnss data registered by a <b>sensor.other.gnss</b>. It essentially reports its position with the position of the sensor and an OpenDRIVE geo-reference.
+	Class that defines the Gnss data registered by a sensor.other.gnss. It essentially reports its position with the position of the sensor and an OpenDRIVE geo-reference.
 	"""
 
 	altitude: float
@@ -4691,7 +4691,7 @@ class GnssMeasurement(SensorData):
 
 class IMUMeasurement(SensorData):
 	"""
-	Class that defines the data registered by a <b>sensor.other.imu</b>, regarding the sensor's transformation according to the current carla.World. It essentially acts as accelerometer, gyroscope and compass.
+	Class that defines the data registered by a sensor.other.imu, regarding the sensor's transformation according to the current carla.World. It essentially acts as accelerometer, gyroscope and compass.
 	"""
 
 	accelerometer: Vector3D
@@ -4713,7 +4713,7 @@ class IMUMeasurement(SensorData):
 
 class RadarMeasurement(SensorData):
 	"""
-	Class that defines and gathers the measures registered by a <b>sensor.other.radar</b>, representing a wall of points in front of the sensor with a distance, angle and velocity in relation to it. The data consists of a carla.RadarDetection array. Learn more about this [here](ref_sensors.md#radar-sensor).
+	Class that defines and gathers the measures registered by a sensor.other.radar, representing a wall of points in front of the sensor with a distance, angle and velocity in relation to it. The data consists of a carla.RadarDetection array. Learn more about this [here](ref_sensors.md#radar-sensor).
 	"""
 
 	raw_data: bytes
@@ -4721,7 +4721,7 @@ class RadarMeasurement(SensorData):
 
 	def get_detection_count(self):
 		"""
-		Retrieves the number of entries generated, same as **<font color="#7fb800">\__str__()</font>**.
+		Retrieves the number of entries generated, same as **\__str__()**.
 		"""
 		...
 
@@ -4765,7 +4765,7 @@ class RadarMeasurement(SensorData):
 
 class RadarDetection:
 	"""
-	Data contained inside a carla.RadarMeasurement. Each of these represents one of the points in the cloud that a <b>sensor.other.radar</b> registers and contains the distance, angle and velocity in relation to the radar.
+	Data contained inside a carla.RadarMeasurement. Each of these represents one of the points in the cloud that a sensor.other.radar registers and contains the distance, angle and velocity in relation to the radar.
 	"""
 
 	altitude: float
@@ -4897,7 +4897,7 @@ class RssActorConstellationData:
 	"""The other object's map matched information. This is only valid if 'other_actor' is not 'None'."""
 
 	other_actor: Actor
-	"""The other actor. This is 'None' in case of query of default parameters or articial objects of kind <a href="https://intel.github.io/ad-rss-lib/doxygen/ad_rss/namespacead_1_1rss_1_1world.html#a6432f1ef8d0657b4f21ed5966aca1625">ad.rss.world.ObjectType.ArtificialObject</a> with no dedicated 'carla.Actor' (as e.g. for the [road boundaries](ref_sensors.md#rss-sensor) at the moment)"""
+	"""The other actor. This is 'None' in case of query of default parameters or articial objects of kind ad.rss.world.ObjectType.ArtificialObject with no dedicated 'carla.Actor' (as e.g. for the [road boundaries](ref_sensors.md#rss-sensor) at the moment)"""
 
 	def __str__(self):
 		"""
@@ -4985,7 +4985,7 @@ class DVSEventArray:
 
 	def to_array(self):
 		"""
-		Converts the stream of events to an array of int values in the following order <code>[x, y, t, pol]</code>.
+		Converts the stream of events to an array of int values in the following order [x, y, t, pol].
 		"""
 		...
 
@@ -5073,7 +5073,7 @@ class WorldSnapshot:
 
 	def find(self, actor_id: int) -> ActorSnapshot:
 		"""
-		Given a certain actor ID, returns its corresponding snapshot or <b>None</b> if it is not found.
+		Given a certain actor ID, returns its corresponding snapshot or None if it is not found.
 
 		:param actor_id: (int) 
 
@@ -5107,7 +5107,7 @@ class WorldSnapshot:
 
 	def __eq__(self, other: WorldSnapshot) -> bool:
 		"""
-		Returns __True__ if both **<font color="#f8805a">timestamp</font>** are the same.
+		Returns __True__ if both **timestamp** are the same.
 
 		:param other: (WorldSnapshot) 
 
@@ -5117,7 +5117,7 @@ class WorldSnapshot:
 
 	def __ne__(self, other: WorldSnapshot) -> bool:
 		"""
-		Returns <b>True</b> if both **<font color="#f8805a">timestamp</font>** are different.
+		Returns True if both **timestamp** are different.
 
 		:param other: (WorldSnapshot) 
 
@@ -5209,7 +5209,7 @@ class WeatherParameters:
 	"""Wetness intensity. It only affects the RGB camera sensor. Values range from 0 to 100."""
 
 	fog_falloff: float
-	"""Density of the fog (as in specific mass) from 0 to infinity. The bigger the value, the more dense and heavy it will be, and the fog will reach smaller heights. Corresponds to <a href="https://docs.unrealengine.com/en-US/Engine/Actors/FogEffects/HeightFog/index.html#:~:text=Using%20Exponential%20Height%20Fog%20Features,-The%20sections%20below&text=Add%20a%20second%20fog%20layer,height%20falloff%2C%20and%20height%20offset">Fog Height Falloff</a> in the UE docs. <br> If the value is 0, the fog will be lighter than air, and will cover the whole scene. <br> A value of 1 is approximately as dense as the air, and reaches normal-sized buildings. <br> For values greater than 5, the air will be so dense that it will be compressed on ground level."""
+	"""Density of the fog (as in specific mass) from 0 to infinity. The bigger the value, the more dense and heavy it will be, and the fog will reach smaller heights. Corresponds to Fog Height Falloff in the UE docs.  If the value is 0, the fog will be lighter than air, and will cover the whole scene.  A value of 1 is approximately as dense as the air, and reaches normal-sized buildings.  For values greater than 5, the air will be so dense that it will be compressed on ground level."""
 
 	scattering_intensity: float
 	"""Controls how much the light will contribute to volumetric fog. When set to 0, there is no contribution."""
@@ -5256,7 +5256,7 @@ class WeatherParameters:
 
 	def __eq__(self, other: Any) -> bool:
 		"""
-		Returns <b>True</b> if both objects' variables are the same.
+		Returns True if both objects' variables are the same.
 
 		:param other: () 
 
@@ -5266,7 +5266,7 @@ class WeatherParameters:
 
 	def __ne__(self, other: Any) -> bool:
 		"""
-		Returns <b>True</b> if both objects' variables are different.
+		Returns True if both objects' variables are different.
 
 		:param other: () 
 
@@ -5350,7 +5350,7 @@ class ActorList:
 
 	def filter(self, wildcard_pattern: str) -> list:
 		"""
-		Filters a list of Actors matching `wildcard_pattern` against their variable __<font color="#f8805a">type_id</font>__ (which identifies the blueprint used to spawn them). Matching follows [fnmatch](https://docs.python.org/2/library/fnmatch.html) standard.
+		Filters a list of Actors matching `wildcard_pattern` against their variable type_id (which identifies the blueprint used to spawn them). Matching follows [fnmatch](https://docs.python.org/2/library/fnmatch.html) standard.
 
 		:param wildcard_pattern: (str) 
 
@@ -5360,7 +5360,7 @@ class ActorList:
 
 	def find(self, actor_id: int) -> Actor:
 		"""
-		Finds an actor using its identifier and returns it or <b>None</b> if it is not present.
+		Finds an actor using its identifier and returns it or None if it is not present.
 
 		:param actor_id: (int) 
 
@@ -5414,7 +5414,7 @@ class WorldSettings:
 	"""When enabled, the simulation will run no rendering at all. This is mainly used to avoid overhead during heavy traffic simulations. It is false by default."""
 
 	fixed_delta_seconds: float
-	"""Ensures that the time elapsed between two steps of the simulation is fixed. Set this to <b>0.0</b> to work with a variable time-step, as happens by default."""
+	"""Ensures that the time elapsed between two steps of the simulation is fixed. Set this to 0.0 to work with a variable time-step, as happens by default."""
 
 	substepping: bool
 	"""Enable the physics substepping. This option allows computing some physics substeps between two render frames. If synchronous mode is set, the number of substeps and its time interval are fixed and computed are so they fulfilled the requirements of carla.WorldSettings.max_substep and carla.WorldSettings.max_substep_delta_time. These last two parameters need to be compatible with carla.WorldSettings.fixed_delta_seconds. Enabled by default."""
@@ -5439,19 +5439,19 @@ class WorldSettings:
 
 	def __init__(self, synchronous_mode: bool = False, no_rendering_mode: bool = False, fixed_delta_seconds: float = 0.0):
 		"""
-		Creates an object containing desired settings that could later be applied through carla.World and its method __<font color="#7fb800">apply_settings()</font>__.
+		Creates an object containing desired settings that could later be applied through carla.World and its method apply_settings().
 
 		:param synchronous_mode: (bool) Set this to true to enable client-server synchrony.
 
 		:param no_rendering_mode: (bool) Set this to true to completely disable rendering in the simulation.
 
-		:param fixed_delta_seconds: (float) Set a fixed time-step in between frames. <code>0.0</code> means variable time-step and it is the default mode.
+		:param fixed_delta_seconds: (float) Set a fixed time-step in between frames. 0.0 means variable time-step and it is the default mode.
 		"""
 		...
 
 	def __eq__(self, other: WorldSettings) -> bool:
 		"""
-		Returns <b>True</b> if both objects' variables are the same.
+		Returns True if both objects' variables are the same.
 
 		:param other: (WorldSettings) Settings to be compared with.
 
@@ -5461,7 +5461,7 @@ class WorldSettings:
 
 	def __ne__(self, other: WorldSettings) -> bool:
 		"""
-		Returns <b>True</b> if both objects' variables are different.
+		Returns True if both objects' variables are different.
 
 		:param other: (WorldSettings) Settings to be compared with.
 
@@ -5518,7 +5518,7 @@ class AttachmentType:
 	"""With this fixed attatchment the object follow its parent position strictly. This is the recommended attachment to retrieve precise data from the simulation."""
 
 	SpringArm: Any
-	"""An attachment that expands or retracts the position of the actor, depending on its parent. This attachment is only recommended to record videos from the simulation where a smooth movement is needed. SpringArms are an Unreal Engine component so [check the UE docs](https://docs.unrealengine.com/en-US/Gameplay/HowTo/UsingCameras/SpringArmComponents/index.html) to learn more about them. <br><b style="color:red;">Warning:</b> The <b>SpringArm</b> attachment presents weird behaviors when an actor is spawned with a relative translation in the Z-axis (e.g. <code>child_location = Location(0,0,2)</code>)."""
+	"""An attachment that expands or retracts the position of the actor, depending on its parent. This attachment is only recommended to record videos from the simulation where a smooth movement is needed. SpringArms are an Unreal Engine component so [check the UE docs](https://docs.unrealengine.com/en-US/Gameplay/HowTo/UsingCameras/SpringArmComponents/index.html) to learn more about them. Warning: The SpringArm attachment presents weird behaviors when an actor is spawned with a relative translation in the Z-axis (e.g. child_location = Location(0,0,2))."""
 
 
 
@@ -5733,7 +5733,7 @@ class World:
 
 	def on_tick(self, callback: WorldSnapshot) -> int:
 		"""
-		This method is used in [__asynchronous__ mode](https://carla.readthedocs.io/en/latest/adv_synchrony_timestep/). It starts callbacks from the client for the function defined as `callback`, and returns the ID of the callback. The function will be called everytime the server ticks. It requires a carla.WorldSnapshot as argument, which can be retrieved from __<font color="#7fb800">wait_for_tick()</font>__. Use __<font color="#7fb800">remove_on_tick()</font>__ to stop the callbacks.
+		This method is used in [__asynchronous__ mode](https://carla.readthedocs.io/en/latest/adv_synchrony_timestep/). It starts callbacks from the client for the function defined as `callback`, and returns the ID of the callback. The function will be called everytime the server ticks. It requires a carla.WorldSnapshot as argument, which can be retrieved from wait_for_tick(). Use remove_on_tick() to stop the callbacks.
 
 		:param callback: (WorldSnapshot) Function with a snapshot as compulsory parameter that will be called when the client receives a tick.
 
@@ -5743,7 +5743,7 @@ class World:
 
 	def remove_on_tick(self, callback_id: callback):
 		"""
-		Stops the callback for `callback_id` started with __<font color="#7fb800">on_tick()</font>__.
+		Stops the callback for `callback_id` started with on_tick().
 
 		:param callback_id: (callback) The callback to be removed. The ID is returned when creating the callback.
 		"""
@@ -5755,7 +5755,7 @@ class World:
 
 		*note*: If no tick is received in synchronous mode, the simulation will freeze. Also, if many ticks are received from different clients, there may be synchronization issues. Please read the docs about [synchronous mode](https://carla.readthedocs.io/en/latest/adv_synchrony_timestep/) to learn more.
 
-		:param seconds: (float) Maximum time the server should wait for a tick. It is set to <code>10.0</code> by default.
+		:param seconds: (float) Maximum time the server should wait for a tick. It is set to 10.0 by default.
 
 		:return: int
 		"""
@@ -5765,7 +5765,7 @@ class World:
 		"""
 		This method is used in [__asynchronous__ mode](https://carla.readthedocs.io/en/latest/adv_synchrony_timestep/). It makes the client wait for a server tick. When the next frame is computed, the server will tick and return a snapshot describing the new state of the world.
 
-		:param seconds: (float) Maximum time the server should wait for a tick. It is set to <code>10.0</code> by default.
+		:param seconds: (float) Maximum time the server should wait for a tick. It is set to 10.0 by default.
 
 		:return: carla.WorldSnapshot
 		"""
@@ -5789,7 +5789,7 @@ class World:
 
 	def try_spawn_actor(self, blueprint: ActorBlueprint, transform: Transform, attach_to: Actor = None, attachment: AttachmentType = Rigid) -> Actor:
 		"""
-		Same as __<font color="#7fb800">spawn_actor()</font>__ but returns <b>None</b> on failure instead of throwing an exception.
+		Same as spawn_actor() but returns None on failure instead of throwing an exception.
 
 		:param blueprint: (ActorBlueprint) The reference from which the actor will be created.
 
@@ -5805,7 +5805,7 @@ class World:
 
 	def get_actor(self, actor_id: int) -> Actor:
 		"""
-		Looks up for an actor by ID and returns <b>None</b> if not found.
+		Looks up for an actor by ID and returns None if not found.
 
 		:param actor_id: (int) 
 
@@ -5817,7 +5817,7 @@ class World:
 		"""
 		Retrieves a list of carla.Actor elements, either using a list of IDs provided or just listing everyone on stage. If an ID does not correspond with any actor, it will be excluded from the list returned, meaning that both the list of IDs and the list of actors may have different lengths.
 
-		:param actor_ids: (list) The IDs of the actors being searched. By default it is set to <b>None</b> and returns every actor on scene.
+		:param actor_ids: (list) The IDs of the actors being searched. By default it is set to None and returns every actor on scene.
 
 		:return: carla.ActorList
 		"""
@@ -5955,7 +5955,7 @@ class World:
 
 	def get_random_location_from_navigation(self) -> Location:
 		"""
-		This can only be used with walkers. It retrieves a random location to be used as a destination using the __<font color="#7fb800">go_to_location()</font>__ method in carla.WalkerAIController. This location will be part of a sidewalk. Roads, crosswalks and grass zones are excluded. The method does not take into consideration locations of existing actors so if a collision happens when trying to spawn an actor, it will return an error. Take a look at [`generate_traffic.py`](https://github.com/carla-simulator/carla/blob/master/PythonAPI/examples/generate_traffic.py) for an example.
+		This can only be used with walkers. It retrieves a random location to be used as a destination using the go_to_location() method in carla.WalkerAIController. This location will be part of a sidewalk. Roads, crosswalks and grass zones are excluded. The method does not take into consideration locations of existing actors so if a collision happens when trying to spawn an actor, it will return an error. Take a look at [`generate_traffic.py`](https://github.com/carla-simulator/carla/blob/master/PythonAPI/examples/generate_traffic.py) for an example.
 
 		:return: carla.Location
 		"""
@@ -6196,7 +6196,7 @@ class DebugHelper:
 
 		:param color: (Color) RGB code to color the object. Red by default.
 
-		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to <code>0</code> for permanent shapes.
+		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to 0 for permanent shapes.
 		"""
 		...
 
@@ -6212,7 +6212,7 @@ class DebugHelper:
 
 		:param color: (Color) RGB code to color the object. Red by default.
 
-		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to <code>0</code> for permanent shapes.
+		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to 0 for permanent shapes.
 		"""
 		...
 
@@ -6228,7 +6228,7 @@ class DebugHelper:
 
 		:param color: (Color) RGB code to color the object. Red by default.
 
-		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to <code>0</code> for permanent shapes.
+		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to 0 for permanent shapes.
 		"""
 		...
 
@@ -6242,7 +6242,7 @@ class DebugHelper:
 
 		:param color: (Color) RGB code to color the object. Red by default.
 
-		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to <code>0</code> for permanent shapes.
+		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to 0 for permanent shapes.
 		"""
 		...
 
@@ -6258,7 +6258,7 @@ class DebugHelper:
 
 		:param color: (Color) RGB code to color the string. Red by default.
 
-		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to <code>0</code> for permanent shapes.
+		:param life_time: (float) Shape's lifespan. By default it only lasts one frame. Set this to 0 for permanent shapes.
 		"""
 		...
 

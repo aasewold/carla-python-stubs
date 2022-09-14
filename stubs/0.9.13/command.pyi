@@ -6,7 +6,7 @@ import numpy as np
 
 class Response:
 	"""
-	States the result of executing a command as either the ID of the actor to whom the command was applied to (when succeeded) or an error string (when failed).  actor ID, depending on whether or not the command succeeded. The method __<font color="#7fb800">apply_batch_sync()</font>__ in carla.Client returns a list of these to summarize the execution of a batch.
+	States the result of executing a command as either the ID of the actor to whom the command was applied to (when succeeded) or an error string (when failed).  actor ID, depending on whether or not the command succeeded. The method apply_batch_sync() in carla.Client returns a list of these to summarize the execution of a batch.
 	"""
 
 	actor_id: int
@@ -17,7 +17,7 @@ class Response:
 
 	def has_error(self) -> bool:
 		"""
-		Returns <b>True</b> if the command execution fails, and <b>False</b> if it was successful.
+		Returns True if the command execution fails, and False if it was successful.
 
 		:return: bool
 		"""
@@ -27,7 +27,7 @@ class Response:
 
 class SpawnActor:
 	"""
-	Command adaptation of __<font color="#7fb800">spawn_actor()</font>__ in carla.World. Spawns an actor into the world based on the blueprint provided and the transform. If a parent is provided, the actor is attached to it.
+	Command adaptation of spawn_actor() in carla.World. Spawns an actor into the world based on the blueprint provided and the transform. If a parent is provided, the actor is attached to it.
 	"""
 
 	transform: carla.Transform
@@ -76,7 +76,7 @@ class SpawnActor:
 
 class DestroyActor:
 	"""
-	Command adaptation of __<font color="#7fb800">destroy()</font>__ in carla.Actor that tells the simulator to destroy this actor. It has no effect if the actor was already destroyed. When executed with __<font color="#7fb800">apply_batch_sync()</font>__ in carla.Client there will be a <b>command.Response</b> that will return a boolean stating whether the actor was successfully destroyed.
+	Command adaptation of destroy() in carla.Actor that tells the simulator to destroy this actor. It has no effect if the actor was already destroyed. When executed with apply_batch_sync() in carla.Client there will be a command.Response that will return a boolean stating whether the actor was successfully destroyed.
 	"""
 
 	actor_id: int
@@ -94,7 +94,7 @@ class DestroyActor:
 
 class ApplyVehiclePhysicsControl:
 	"""
-	Command adaptation of __<font color="#7fb800">apply_physics_control()</font>__ in carla.Vehicle. Applies a new physics control to a vehicle, modifying its physical parameters.
+	Command adaptation of apply_physics_control() in carla.Vehicle. Applies a new physics control to a vehicle, modifying its physical parameters.
 	"""
 
 	actor_id: int
@@ -117,7 +117,7 @@ class ApplyVehiclePhysicsControl:
 
 class ApplyVehicleControl:
 	"""
-	Command adaptation of __<font color="#7fb800">apply_control()</font>__ in carla.Vehicle. Applies a certain control to a vehicle.
+	Command adaptation of apply_control() in carla.Vehicle. Applies a certain control to a vehicle.
 	"""
 
 	actor_id: int
@@ -140,7 +140,7 @@ class ApplyVehicleControl:
 
 class ApplyWalkerControl:
 	"""
-	Command adaptation of __<font color="#7fb800">apply_control()</font>__ in carla.Walker. Applies a control to a walker.
+	Command adaptation of apply_control() in carla.Walker. Applies a control to a walker.
 	"""
 
 	actor_id: int
@@ -163,7 +163,7 @@ class ApplyWalkerControl:
 
 class ApplyTransform:
 	"""
-	Command adaptation of __<font color="#7fb800">set_transform()</font>__ in carla.Actor. Sets a new transform to an actor.
+	Command adaptation of set_transform() in carla.Actor. Sets a new transform to an actor.
 	"""
 
 	actor_id: int
@@ -214,7 +214,7 @@ class ApplyWalkerState:
 
 class ApplyTargetVelocity:
 	"""
-	Command adaptation of __<font color="#7fb800">set_target_velocity()</font>__ in carla.Actor.
+	Command adaptation of set_target_velocity() in carla.Actor.
 	"""
 
 	actor_id: int
@@ -237,7 +237,7 @@ class ApplyTargetVelocity:
 
 class ApplyTargetAngularVelocity:
 	"""
-	Command adaptation of __<font color="#7fb800">set_target_angular_velocity()</font>__ in carla.Actor. Sets the actor's angular velocity vector.
+	Command adaptation of set_target_angular_velocity() in carla.Actor. Sets the actor's angular velocity vector.
 	"""
 
 	actor_id: int
@@ -260,7 +260,7 @@ class ApplyTargetAngularVelocity:
 
 class ApplyImpulse:
 	"""
-	Command adaptation of __<font color="#7fb800">add_impulse()</font>__ in carla.Actor. Applies an impulse to an actor.
+	Command adaptation of add_impulse() in carla.Actor. Applies an impulse to an actor.
 	"""
 
 	actor_id: int
@@ -283,7 +283,7 @@ class ApplyImpulse:
 
 class ApplyForce:
 	"""
-	Command adaptation of __<font color="#7fb800">add_force()</font>__ in carla.Actor. Applies a force to an actor.
+	Command adaptation of add_force() in carla.Actor. Applies a force to an actor.
 	"""
 
 	actor_id: int
@@ -306,7 +306,7 @@ class ApplyForce:
 
 class ApplyAngularImpulse:
 	"""
-	Command adaptation of __<font color="#7fb800">add_angular_impulse()</font>__ in carla.Actor. Applies an angular impulse to an actor.
+	Command adaptation of add_angular_impulse() in carla.Actor. Applies an angular impulse to an actor.
 	"""
 
 	actor_id: int
@@ -329,7 +329,7 @@ class ApplyAngularImpulse:
 
 class ApplyTorque:
 	"""
-	Command adaptation of __<font color="#7fb800">add_torque()</font>__ in carla.Actor. Applies a torque to an actor.
+	Command adaptation of add_torque() in carla.Actor. Applies a torque to an actor.
 	"""
 
 	actor_id: int
@@ -352,7 +352,7 @@ class ApplyTorque:
 
 class SetSimulatePhysics:
 	"""
-	Command adaptation of __<font color="#7fb800">set_simulate_physics()</font>__ in carla.Actor. Determines whether an actor will be affected by physics or not.
+	Command adaptation of set_simulate_physics() in carla.Actor. Determines whether an actor will be affected by physics or not.
 	"""
 
 	actor_id: int
@@ -375,7 +375,7 @@ class SetSimulatePhysics:
 
 class SetAutopilot:
 	"""
-	Command adaptation of __<font color="#7fb800">set_autopilot()</font>__ in carla.Vehicle. Turns on/off the vehicle's autopilot mode.
+	Command adaptation of set_autopilot() in carla.Vehicle. Turns on/off the vehicle's autopilot mode.
 	"""
 
 	actor_id: int
@@ -403,7 +403,7 @@ class SetAutopilot:
 
 class SetVehicleLightState:
 	"""
-	Command adaptation of __<font color="#7fb800">set_light_state()</font>__ in carla.Vehicle. Sets the light state of a vehicle.
+	Command adaptation of set_light_state() in carla.Vehicle. Sets the light state of a vehicle.
 	"""
 
 	actor_id: int
@@ -426,7 +426,7 @@ class SetVehicleLightState:
 
 class SetEnableGravity:
 	"""
-	Command adaptation of __<font color="#7fb800">set_enable_gravity()</font>__ in carla.Actor. Enables or disables gravity on an actor.
+	Command adaptation of set_enable_gravity() in carla.Actor. Enables or disables gravity on an actor.
 	"""
 
 	actor_id: str
@@ -449,7 +449,7 @@ class SetEnableGravity:
 
 class ShowDebugTelemetry:
 	"""
-	Command adaptation of __<font color="#7fb800">show_debug_telemetry()</font>__ in carla.Actor. Displays vehicle control telemetry data.
+	Command adaptation of show_debug_telemetry() in carla.Actor. Displays vehicle control telemetry data.
 	"""
 
 	actor_id: str

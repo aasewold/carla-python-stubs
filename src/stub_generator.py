@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 import yaml
@@ -50,7 +51,7 @@ class CarlaStubGenerator:
                 self._generator.add_line(f"class {class_name}:")
             self._generator.indent()
             self._generator.add_line('"""')
-            self._generator.add_line(_class.get("doc", "").strip())
+            self._generator.add_line(self._parse_docs(_class.get("doc", "")))
             self._generator.add_line('"""')
             self._generator.add_line()
             self._generate_instance_variables(_class)
@@ -64,9 +65,9 @@ class CarlaStubGenerator:
                 name = instance_variable.get("var_name", None)
                 if name:
                     type = self._parse_type(instance_variable.get("type", "Any"))
-                    doc = instance_variable.get("doc", "")
+                    doc = self._parse_docs(instance_variable.get("doc", ""))
                     self._generator.add_line(f"{name}: {type}")
-                    self._generator.add_line(f'"""{doc.strip()}"""')
+                    self._generator.add_line(f'"""{doc}"""')
                     self._generator.add_line()
 
     def _generate_methods(self, _class):
@@ -110,22 +111,22 @@ class CarlaStubGenerator:
                 # generate method docstring
                 self._generator.indent()
                 self._generator.add_line('"""')
-                self._generator.add_line(method.get("doc", "").strip())
+                self._generator.add_line(self._parse_docs(method.get("doc", "")))
 
                 note = method.get("note", None)
                 if note:
                     self._generator.add_line()
-                    self._generator.add_line(f"*note*: {note.strip()}")
+                    self._generator.add_line(f"*note*: {self._parse_docs(note)}")
 
                 warning = method.get("warning", None)
                 if warning:
                     self._generator.add_line()
-                    self._generator.add_line(f"**warning**: {warning.strip()}")
+                    self._generator.add_line(f"**warning**: {self._parse_docs(warning)}")
 
                 for param in param_list:
                     param_name = param.get("param_name", "")
                     param_type = self._parse_type(param.get("type", ""))
-                    param_doc = param.get("doc", "").strip()
+                    param_doc = self._parse_docs(param.get("doc", ""))
                     self._generator.add_line()
                     self._generator.add_line(
                         f":param {param_name}: ({param_type}) {param_doc}"
@@ -158,3 +159,15 @@ class CarlaStubGenerator:
 
     def _remove_module(self, value: str):
         return value.replace(f"{self.module_name}.", "")
+
+    def _parse_docs(self, value: str):
+        # remove html tags of type __<font color="#7fb800">add_force()</font>__
+        value = re.sub(r"__<.*?>", "", value)
+        value = re.sub(r"<.*?>__", "", value)
+
+        # remove other tags
+        for tag in ["a", "b", "i", "br", "code", "font", "small"]:
+            value = re.sub(rf"<{tag}.*?>", "", value)
+            value = value.replace(f"</{tag}>", "")
+
+        return value.strip()
