@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class Actor:
 	"""
@@ -807,6 +808,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class ActorAttributeType:
 	"""
@@ -1227,6 +1229,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class Client:
 	"""
@@ -1731,6 +1734,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class VehicleControl:
 	"""
@@ -2154,6 +2158,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class Vector2D:
 	"""
@@ -2846,6 +2851,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class LightGroup:
 	"""
@@ -3177,6 +3183,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class LaneType:
 	"""
@@ -3896,6 +3903,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class Osm2Odr:
 	"""
@@ -3971,6 +3979,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class Sensor(Actor):
 	"""
@@ -4169,6 +4178,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class SensorData:
 	"""
@@ -5056,6 +5066,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class WorldSnapshot:
 	"""
@@ -5174,6 +5185,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class WeatherParameters:
 	"""
@@ -5287,6 +5299,7 @@ from __future__ import annotations
 from typing import Any
 import numpy as np
 
+import command
 
 class Timestamp:
 	"""

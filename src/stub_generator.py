@@ -7,6 +7,8 @@ import yaml
 
 from .code_generator import CodeGenerator
 
+MODULE_NAMES = ["carla", "command"]
+
 
 class CarlaStubGenerator:
     module_name: str
@@ -27,6 +29,9 @@ class CarlaStubGenerator:
         self._generator.add_line("from typing import Any")
         self._generator.add_line("import numpy as np")
         self._generator.add_line()
+        for module_name in MODULE_NAMES:
+            if self.module_name != module_name:
+                self._generator.add_line(f"import {module_name}")
         self._generator.add_line()
 
     def save_to_file(self, directory: Path):
@@ -121,7 +126,9 @@ class CarlaStubGenerator:
                 warning = method.get("warning", None)
                 if warning:
                     self._generator.add_line()
-                    self._generator.add_line(f"**warning**: {self._parse_docs(warning)}")
+                    self._generator.add_line(
+                        f"**warning**: {self._parse_docs(warning)}"
+                    )
 
                 for param in param_list:
                     param_name = param.get("param_name", "")
