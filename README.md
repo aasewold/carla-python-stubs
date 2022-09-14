@@ -21,3 +21,10 @@ See if your editor supports adding custom Python stubs. If not, you can add the 
 1. Run `pip show carla` in the terminal. Find the `Location` path. This should end in a directory named `site-packages`.
 2. Open the `Location` directory above. Place the stub files in the `carla` subdiretory (`.../site-packages/carla`).
 3. You should now see type hints for the `carla`-module in your code.
+
+
+## Generating stubs
+Stubs are available in [releases](https://github.com/mathiaswold/carla-python-stubs/releases). You can generate them yourself:
+1. Clone this repository.
+2. Install the requirements: `pip install -r requirements.txt`
+3. Run `python -m src.generate_stubs` in the terminal. This will generate stubs for the latest CARLA version. You can specify a different version by running `python -m src.generate_stubs --version <version>`. See `python -m src.generate_stubs --help` for more information.
