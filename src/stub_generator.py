@@ -42,7 +42,12 @@ class CarlaStubGenerator:
     def _generate_class(self, _class):
         class_name = _class.get("class_name", None)
         if class_name:
-            self._generator.add_line(f"class {class_name}:")
+            parent = _class.get("parent", None)
+            if parent:
+                parent = self._remove_module(parent)
+                self._generator.add_line(f"class {class_name}({parent}):")
+            else:
+                self._generator.add_line(f"class {class_name}:")
             self._generator.indent()
             self._generator.add_line('"""')
             self._generator.add_line(_class.get("doc", "").strip())
@@ -82,9 +87,7 @@ class CarlaStubGenerator:
                         if param_type == "str":
                             param_default = f'"{param_default}"'
                         try:
-                            param_default = param_default.replace(
-                                f"{self.module_name}.", ""
-                            )  # remove module name
+                            param_default = self._remove_module(param_default)
                             if param_default.startswith(f"{param_type}."):
                                 param_default = param_default.split(".")[0]
                         except:
@@ -148,7 +151,10 @@ class CarlaStubGenerator:
             return "str"
         if _type == "string":
             return "str"
-        _type = _type.replace(f"{self.module_name}.", "")  # remove module name
+        _type = self._remove_module(_type)  # remove module name
         _type = _type.replace("(", "[").replace(")", "]")
 
         return _type
+
+    def _remove_module(self, value: str):
+        return value.replace(f"{self.module_name}.", "")
